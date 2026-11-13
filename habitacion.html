@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habitaciones · Residencia Chalo</title>
+  <meta name="description" content="Habitación Grande (baño exterior, 100 €) y Habitación Sencilla (baño interior, 75 €) con tours en video. San Diego, Carabobo.">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261113d">
+  <link rel="stylesheet" href="css/main.css?v=20261113d">
+  <script src="data/site.js?v=20261113d" defer></script>
+  <script src="data/rooms.js?v=20261113d" defer></script>
+  <script src="js/site.js?v=20261113d" defer></script>
+  <script src="js/habitacion.js?v=20261113d" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <div class="grano" aria-hidden="true"></div>
+  <div class="cursor-punto" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="marca" href="index.html">Residencia <em>Chalo</em></a>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitacion.html" aria-current="page">Habitaciones</a></li>
+          <li><a href="normas.html">Normas</a></li>
+          <li><a href="contrato.html">Contrato</a></li>
+          <li><a href="visita.html">Visita</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--peq btn-cabecera" href="visita.html">Coordinar visita</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="icono-menu">Menú</span>
+        <span class="icono-x">Cerrar</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="pagina-editorial" id="detalle-habitacion">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">01</span> Habitaciones</p>
+        <p style="margin-bottom:1rem" data-slot="subtitulo">Espacio amplio, luz y baño de uso individual</p>
+        <h1 class="display" data-slot="titulo">Habitación Grande</h1>
+        <noscript><p>Activa JavaScript para ver el detalle completo de cada habitación.</p></noscript>
+
+        <!-- Media (col-7) + columna de acción: precio → CTA → ficha técnica -->
+        <div class="rejilla" style="margin-top:var(--esp-2)">
+          <div class="col-7" data-slot="video" data-reveal></div>
+          <div class="col-5">
+            <p class="hab-precio" data-slot="precio"></p>
+            <div style="display:grid; gap:.8rem; margin-top:1.6rem">
+              <a class="btn btn--terracota" data-slot="cta" href="visita.html">Coordinar visita</a>
+            </div>
+            <div class="bloque-ficha" style="margin-top:var(--esp-1)">
+              <h3>Ficha</h3>
+              <div data-slot="ficha"></div>
+              <h3 style="margin-top:1.4rem; font-size:1.1rem">Incluye</h3>
+              <ul data-slot="incluidos" style="margin-top:.6rem; display:grid; gap:.45rem"></ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--esp-2); max-width:46rem">
+          <h2 style="font-size:var(--fs-h3)">Sobre esta habitación</h2>
+          <p data-slot="descripcion" style="margin-top:1rem"></p>
+          <h3 style="margin-top:var(--esp-1)">Lo destacado</h3>
+          <ul class="lista-pasos" data-slot="destacados" style="margin-top:.5rem"></ul>
+        </div>
+
+        <div style="margin-top:var(--esp-3)">
+          <p class="rotulo"><span class="rotulo__num">02</span> Galería</p>
+          <div class="rejilla" data-slot="galeria"></div>
+        </div>
+
+        <div style="margin-top:var(--esp-2)">
+          <p class="rotulo"><span class="rotulo__num">03</span> Otras habitaciones</p>
+          <ul style="display:flex; gap:1.5rem; flex-wrap:wrap" data-slot="selector"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__rejilla">
+        <div>
+          <p class="site-footer__marca">Residencia <em>Chalo</em></p>
+          <p style="margin-top:1rem; max-width:30ch; color:rgba(20,17,14,.7)">Habitaciones amobladas para vivir tranquilo, en el municipio San Diego, Estado Carabobo.</p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="habitacion.html">Habitaciones</a></li>
+            <li><a href="normas.html">Normas de convivencia</a></li>
+            <li><a href="contrato.html">Modelo de contrato</a></li>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li>San Diego, Carabobo · Urb. San Sur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© <span data-anio>2025</span> Residencia Chalo · Visitas únicamente con cita previa.</p>
+        <p>La dirección exacta se comparte al agendar tu visita.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

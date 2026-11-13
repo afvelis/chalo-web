@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Normas de convivencia · Residencia Chalo</title>
+  <meta name="description" content="Normas de convivencia de Residencia Chalo: visitas, limpieza, cocina, servicios y convivencia vecinal, derivadas del contrato real.">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261113d">
+  <link rel="stylesheet" href="css/main.css?v=20261113d">
+  <script src="data/site.js?v=20261113d" defer></script>
+  <script src="data/contenido.js?v=20261113d" defer></script>
+  <script src="js/site.js?v=20261113d" defer></script>
+  <script src="js/normas.js?v=20261113d" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <div class="grano" aria-hidden="true"></div>
+  <div class="cursor-punto" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="marca" href="index.html">Residencia <em>Chalo</em></a>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitacion.html">Habitaciones</a></li>
+          <li><a href="normas.html" aria-current="page">Normas</a></li>
+          <li><a href="contrato.html">Contrato</a></li>
+          <li><a href="visita.html">Visita</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--peq btn-cabecera" href="visita.html">Coordinar visita</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="icono-menu">Menú</span>
+        <span class="icono-x">Cerrar</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="pagina-editorial">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">01</span> Convivencia</p>
+        <div class="normas-cabecera">
+          <h1 class="display">Normas de <em>convivencia</em></h1>
+          <p style="max-width:56ch">Aquí está todo, con claridad: cada norma sale del contrato real o de lo acordado con la administración. Búscala por texto o filtra por tema.</p>
+        </div>
+
+        <div class="normas-layout">
+          <aside class="normas-aside" aria-label="Filtros y búsqueda">
+            <div class="campo-busca">
+              <label class="visually-hidden" for="normas-busca">Buscar norma por texto</label>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="search" id="normas-busca" placeholder="Buscar una norma…" autocomplete="off">
+            </div>
+            <div class="chips" role="group" aria-label="Filtrar por categoría">
+              <button type="button" class="chip" data-cat="todas" aria-pressed="true">Todas</button>
+              <button type="button" class="chip" data-cat="convivencia" aria-pressed="false">Convivencia</button>
+              <button type="button" class="chip" data-cat="visitas" aria-pressed="false">Visitas</button>
+              <button type="button" class="chip" data-cat="limpieza" aria-pressed="false">Limpieza</button>
+              <button type="button" class="chip" data-cat="cocina" aria-pressed="false">Cocina y áreas comunes</button>
+              <button type="button" class="chip" data-cat="servicios" aria-pressed="false">Servicios</button>
+              <button type="button" class="chip" data-cat="vecinal" aria-pressed="false">Convivencia vecinal</button>
+            </div>
+            <nav aria-label="Índice de secciones">
+              <h4 style="font-size:.78rem; text-transform:uppercase; letter-spacing:.16em; color:var(--terracota); margin-bottom:.6rem">Índice</h4>
+              <ul id="normas-indice" style="display:grid; gap:.45rem"></ul>
+            </nav>
+            <noscript><p>Activa JavaScript para filtrar y buscar las normas.</p></noscript>
+          </aside>
+
+          <div>
+            <div id="normas-contenido"></div>
+            <p class="sin-resultados">No hay normas que coincidan con esa búsqueda. Prueba con otra palabra.</p>
+
+            <div class="zona-incluido" id="normas-incluido">
+              <h3>Lo que sí está incluido</h3>
+              <p>Todo esto forma parte del canon mensual; la limpieza de tu espacio (habitación y baño) se cobra aparte: 5 EUR al mes, una vez al mes, obligatoria.</p>
+              <ul></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__rejilla">
+        <div>
+          <p class="site-footer__marca">Residencia <em>Chalo</em></p>
+          <p style="margin-top:1rem; max-width:30ch; color:rgba(20,17,14,.7)">Habitaciones amobladas para vivir tranquilo, en el municipio San Diego, Estado Carabobo.</p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="habitacion.html">Habitaciones</a></li>
+            <li><a href="normas.html">Normas de convivencia</a></li>
+            <li><a href="contrato.html">Modelo de contrato</a></li>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li>San Diego, Carabobo · Urb. San Sur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© <span data-anio>2025</span> Residencia Chalo · Visitas únicamente con cita previa.</p>
+        <p>La dirección exacta se comparte al agendar tu visita.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

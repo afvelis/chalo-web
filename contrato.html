@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Modelo de contrato · Residencia Chalo</title>
+  <meta name="description" content="Modelo de referencia del contrato de arrendamiento de Residencia Chalo: 19 cláusulas, servicios, plazos y condiciones.">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261113d">
+  <link rel="stylesheet" href="css/main.css?v=20261113d">
+  <script src="data/site.js?v=20261113d" defer></script>
+  <script src="data/contenido.js?v=20261113d" defer></script>
+  <script src="js/site.js?v=20261113d" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <div class="grano" aria-hidden="true"></div>
+  <div class="cursor-punto" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="marca" href="index.html">Residencia <em>Chalo</em></a>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitacion.html">Habitaciones</a></li>
+          <li><a href="normas.html">Normas</a></li>
+          <li><a href="contrato.html" aria-current="page">Contrato</a></li>
+          <li><a href="visita.html">Visita</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--peq btn-cabecera" href="visita.html">Coordinar visita</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="icono-menu">Menú</span>
+        <span class="icono-x">Cerrar</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="pagina-editorial">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">01</span> Transparencia</p>
+        <h1 class="display" style="margin-bottom:var(--esp-1)">Modelo de <em>contrato</em></h1>
+
+        <div class="contrato-aviso" role="note">
+          <strong>Modelo de referencia.</strong> El contrato que se firma se entrega en físico y con los datos de ambas partes. En este modelo, los datos personales y el canon aparecen como marcadores entre corchetes.
+        </div>
+
+        <div class="papel" id="papel-contrato">
+          <div class="papel__agua" id="papel-agua" aria-hidden="true"></div>
+          <div class="papel__cuerpo">
+            <noscript><p>Activa JavaScript para leer el modelo completo, o solicítalo al coordinar tu visita.</p></noscript>
+            <p id="contrato-encabezado"></p>
+            <div id="contrato-clausulas" style="margin-top:1.6rem"></div>
+            <div class="papel__firmas" id="contrato-firmas"></div>
+            <p class="papel__aviso-copia">Texto de solo lectura, pensado para que lo leas con calma. No se puede copiar ni seleccionar; el documento que se firma se entrega impreso, con los datos reales de ambas partes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__rejilla">
+        <div>
+          <p class="site-footer__marca">Residencia <em>Chalo</em></p>
+          <p style="margin-top:1rem; max-width:30ch; color:rgba(20,17,14,.7)">Habitaciones amobladas para vivir tranquilo, en el municipio San Diego, Estado Carabobo.</p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="habitacion.html">Habitaciones</a></li>
+            <li><a href="normas.html">Normas de convivencia</a></li>
+            <li><a href="contrato.html">Modelo de contrato</a></li>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li>San Diego, Carabobo · Urb. San Sur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© <span data-anio>2025</span> Residencia Chalo · Visitas únicamente con cita previa.</p>
+        <p>La dirección exacta se comparte al agendar tu visita.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Render del modelo de contrato desde window.CHALO_CONTRATO (IIFE clásica).
+     * data/contenido.js va con defer: se ejecuta tras el parseo, justo antes
+     * del evento DOMContentLoaded, así que la lectura del modelo no puede
+     * hacerse al estilo inline clásico. Se espera a DOMContentLoaded. */
+    document.addEventListener('DOMContentLoaded', function () {
+    (function () {
+      'use strict';
+      var datos = window.CHALO_CONTRATO;
+      var cuerpo = document.getElementById('contrato-clausulas');
+      if (!datos || !cuerpo) { return; }
+
+      var agua = document.getElementById('papel-agua');
+      if (agua) {
+        for (var i = 0; i < 9; i += 1) {
+          var linea = document.createElement('span');
+          linea.textContent = 'RESIDENCIA CHALO · MODELO DE CONTRATO';
+          agua.appendChild(linea);
+        }
+      }
+
+      var encabezado = document.getElementById('contrato-encabezado');
+      if (encabezado) { encabezado.textContent = datos.encabezado; }
+
+      datos.clausulas.forEach(function (clausula) {
+        var articulo = document.createElement('article');
+        articulo.className = 'clausula';
+        var titulo = document.createElement('h4');
+        titulo.textContent = clausula.num;
+        var parrafo = document.createElement('p');
+        parrafo.textContent = clausula.texto;
+        articulo.appendChild(titulo);
+        articulo.appendChild(parrafo);
+        cuerpo.appendChild(articulo);
+
+        if (clausula.firmas) {
+          var firmas = document.getElementById('contrato-firmas');
+          clausula.firmas.forEach(function (nombre) {
+            var bloque = document.createElement('div');
+            var linea = document.createElement('span');
+            linea.textContent = nombre;
+            bloque.appendChild(linea);
+            firmas.appendChild(bloque);
+          });
+        }
+      });
+    })();
+    });
+  </script>
+</body>
+</html>

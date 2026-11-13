@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coordinar visita · Residencia Chalo</title>
+  <meta name="description" content="Agenda tu visita a Residencia Chalo en 3 pasos: dime cuándo te viene bien, cómo contactarte y qué habitación te interesa (opcional).">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261113d">
+  <link rel="stylesheet" href="css/main.css?v=20261113d">
+  <script src="data/site.js?v=20261113d" defer></script>
+  <script src="data/rooms.js?v=20261113d" defer></script>
+  <script src="js/site.js?v=20261113d" defer></script>
+  <script src="js/visita.js?v=20261113d" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <div class="grano" aria-hidden="true"></div>
+  <div class="cursor-punto" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="marca" href="index.html">Residencia <em>Chalo</em></a>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitacion.html">Habitaciones</a></li>
+          <li><a href="normas.html">Normas</a></li>
+          <li><a href="contrato.html">Contrato</a></li>
+          <li><a href="visita.html" aria-current="page">Visita</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--peq btn-cabecera" href="visita.html" aria-current="page">Coordinar visita</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="icono-menu">Menú</span>
+        <span class="icono-x">Cerrar</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="pagina-editorial pagina-visita">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">01</span> Pase de visita</p>
+        <h1 class="display" style="margin-bottom:var(--esp-1)">Agenda tu <em>visita</em></h1>
+
+        <!-- Destino de la solicitud: Google Apps Script (Web App). La URL /exec vive
+             SOLO aquí. Si se vuelve a implementar el script y la URL cambia, edítala aquí. -->
+        <form id="form-visita" class="formulario formulario-visita" action="https://script.google.com/macros/s/AKfycbzjg-iKz0qtKoY4xWYoPl5nlI9Wm0m2-xh_8gINb50JGtK6tyTSdge81K9QN6S_5LGO/exec" method="POST">
+
+          <div class="pasos-cabecera">
+            <p class="pasos-live" id="pasos-live" aria-live="polite">Paso 1 de 3</p>
+            <div class="pasos-barra" aria-hidden="true"><span class="pasos-barra__lleno" id="pasos-barra"></span></div>
+          </div>
+
+          <fieldset class="paso" data-paso="1">
+            <legend>¿Cuándo te viene bien?</legend>
+            <p class="ayuda pasos-ayuda">Todo esto es opcional: puedes dejarlo en blanco.</p>
+            <div class="campo">
+              <span class="chips-rotulo" id="rotulo-disponibilidad">Disponibilidad</span>
+              <div class="chips" role="group" aria-labelledby="rotulo-disponibilidad">
+                <input class="input-oculto" type="radio" id="v-disp-semana" name="disponibilidad" value="Esta semana">
+                <label class="chip" for="v-disp-semana">Esta semana</label>
+                <input class="input-oculto" type="radio" id="v-disp-proxima" name="disponibilidad" value="La próxima">
+                <label class="chip" for="v-disp-proxima">La próxima</label>
+                <input class="input-oculto" type="radio" id="v-disp-finde" name="disponibilidad" value="Solo fines de semana">
+                <label class="chip" for="v-disp-finde">Solo fines de semana</label>
+                <input class="input-oculto" type="radio" id="v-disp-adapto" name="disponibilidad" value="Me adapto">
+                <label class="chip" for="v-disp-adapto">Me adapto</label>
+              </div>
+            </div>
+            <div class="campo">
+              <span class="chips-rotulo" id="rotulo-franja">Franja del día</span>
+              <div class="chips" role="group" aria-labelledby="rotulo-franja">
+                <input class="input-oculto" type="radio" id="v-franja-manana" name="franja" value="Mañana">
+                <label class="chip" for="v-franja-manana">Mañana</label>
+                <input class="input-oculto" type="radio" id="v-franja-tarde" name="franja" value="Tarde">
+                <label class="chip" for="v-franja-tarde">Tarde</label>
+                <input class="input-oculto" type="radio" id="v-franja-noche" name="franja" value="Noche">
+                <label class="chip" for="v-franja-noche">Noche</label>
+              </div>
+            </div>
+            <details class="detalle-fecha" open>
+              <summary>Prefiero indicar un día exacto</summary>
+              <div class="campo">
+                <label for="v-fecha">Fecha preferida (opcional)</label>
+                <input type="date" id="v-fecha" name="fecha">
+              </div>
+            </details>
+            <div class="pasos-nav">
+              <button type="button" class="btn btn--terracota" data-siguiente>Siguiente</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="paso" data-paso="2">
+            <legend>Tus datos</legend>
+            <div class="campo">
+              <label for="v-nombre">Nombre y apellido *</label>
+              <input type="text" id="v-nombre" name="nombre" required autocomplete="name" enterkeyhint="next">
+              <p class="campo-error">Escribe tu nombre para poder atenderte.</p>
+            </div>
+
+            <div class="campo">
+              <label for="v-telefono">Teléfono o WhatsApp *</label>
+              <input type="tel" id="v-telefono" name="telefono" required inputmode="tel" autocomplete="tel" placeholder="+58 412 555 1234" enterkeyhint="next">
+              <p class="campo-error">Necesitamos un número para confirmar la visita.</p>
+            </div>
+
+            <div class="campo">
+              <label for="v-email">Email (opcional)</label>
+              <input type="email" id="v-email" name="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" enterkeyhint="next">
+              <p class="campo-error">Revisa el formato del email.</p>
+            </div>
+
+            <details class="detalle-saber" open>
+              <summary>¿Algo que debamos saber?</summary>
+              <div class="campo">
+                <label for="v-mensaje">Mensaje (opcional)</label>
+                <textarea id="v-mensaje" name="mensaje" placeholder="Cuéntanos qué estudias o a qué te dedicas, y cualquier pregunta que tengas."></textarea>
+              </div>
+              <div class="campo">
+                <label for="v-acompanantes">Cantidad de acompañantes</label>
+                <select id="v-acompanantes" name="acompanantes">
+                  <option value="0">Vengo solo(a)</option>
+                  <option value="1">1 acompañante</option>
+                  <option value="2">2 acompañantes</option>
+                  <option value="3">3 acompañantes</option>
+                </select>
+              </div>
+            </details>
+
+            <p class="promesa-contacto">Te escribimos por WhatsApp en menos de 24 horas hábiles. No compartimos tus datos con nadie.</p>
+
+            <div class="campo campo--check">
+              <input type="checkbox" id="v-consent" name="consentimiento" value="Autorizo el contacto para coordinar esta visita" required>
+              <label for="v-consent">Autorizo que me contacten por WhatsApp o correo para coordinar esta visita. *</label>
+            </div>
+
+            <div class="pasos-nav">
+              <button type="button" class="btn" data-atras>Atrás</button>
+              <button type="button" class="btn btn--terracota" data-siguiente>Siguiente</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="paso" data-paso="3">
+            <legend>¿Qué habitación te interesa? (opcional)</legend>
+            <div class="opcion-habs">
+              <div class="opcion-hab">
+                <input class="input-oculto" type="radio" id="v-hab-grande" name="habitacion" value="hab-grande">
+                <label class="opcion-hab__fila" for="v-hab-grande">
+                  <span class="opcion-hab__marca" aria-hidden="true"></span>
+                  <span class="opcion-hab__texto">
+                    <span class="opcion-hab__nombre">Habitación Grande</span>
+                    <span class="opcion-hab__resumen">Baño exterior · Cama · Aire acondicionado · Nevera</span>
+                  </span>
+                  <span class="opcion-hab__precio"><small>canon</small>100 €</span>
+                </label>
+              </div>
+
+              <div class="opcion-hab">
+                <input class="input-oculto" type="radio" id="v-hab-sencilla" name="habitacion" value="hab-sencilla">
+                <label class="opcion-hab__fila" for="v-hab-sencilla">
+                  <span class="opcion-hab__marca" aria-hidden="true"></span>
+                  <span class="opcion-hab__texto">
+                    <span class="opcion-hab__nombre">Habitación Sencilla</span>
+                    <span class="opcion-hab__resumen">Baño interior · Cama · Aire acondicionado · Nevera</span>
+                  </span>
+                  <span class="opcion-hab__precio"><small>canon</small>75 €</span>
+                </label>
+              </div>
+
+              <div class="opcion-hab">
+                <input class="input-oculto" type="radio" id="v-hab-nose" name="habitacion" value="Aún no lo sé" checked>
+                <label class="opcion-hab__fila" for="v-hab-nose">
+                  <span class="opcion-hab__marca" aria-hidden="true"></span>
+                  <span class="opcion-hab__texto">
+                    <span class="opcion-hab__nombre">Aún no lo sé</span>
+                    <span class="opcion-hab__nota">Puedes decidirlo en la visita</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="pasos-nav">
+              <button type="button" class="btn" data-atras>Atrás</button>
+            </div>
+
+            <div class="accion-envio">
+              <button type="submit" class="btn btn--terracota btn--grande" id="visita-enviar">Enviar solicitud de visita</button>
+            </div>
+          </fieldset>
+
+          <div class="aviso-file" id="aviso-file" role="alert">
+            <strong>Parece que abres esta página como archivo local,</strong> y el envío del formulario puede fallar en ese modo. Abre esta página desde la dirección publicada del sitio para enviar tu solicitud.
+            <div class="admin-acciones">
+              <button type="button" class="btn btn--peq" id="aviso-file-enviar">Enviar de todos modos</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__rejilla">
+        <div>
+          <p class="site-footer__marca">Residencia <em>Chalo</em></p>
+          <p style="margin-top:1rem; max-width:30ch; color:rgba(20,17,14,.7)">Habitaciones amobladas para vivir tranquilo, en el municipio San Diego, Estado Carabobo.</p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="habitacion.html">Habitaciones</a></li>
+            <li><a href="normas.html">Normas de convivencia</a></li>
+            <li><a href="contrato.html">Modelo de contrato</a></li>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li>San Diego, Carabobo · Urb. San Sur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© <span data-anio>2025</span> Residencia Chalo · Visitas únicamente con cita previa.</p>
+        <p>La dirección exacta se comparte al agendar tu visita.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

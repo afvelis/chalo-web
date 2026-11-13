@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Residencia Chalo · Habitaciones amobladas en San Diego, Carabobo</title>
+  <meta name="description" content="Habitaciones amobladas con agua, luz, internet y limpieza de áreas comunes incluidos. San Diego, Carabobo · Urb. San Sur. Canon a tasa BCV del día.">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261113d">
+  <link rel="stylesheet" href="css/main.css?v=20261113d">
+  <script src="data/site.js?v=20261113d" defer></script>
+  <script src="data/rooms.js?v=20261113d" defer></script>
+  <script src="js/site.js?v=20261113d" defer></script>
+  <script src="js/index.js?v=20261113d" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Filtro de grano + cursor + capa de textura -->
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <div class="grano" aria-hidden="true"></div>
+  <div class="cursor-punto" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="marca" href="index.html">Residencia <em>Chalo</em></a>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="habitacion.html">Habitaciones</a></li>
+          <li><a href="normas.html">Normas</a></li>
+          <li><a href="contrato.html">Contrato</a></li>
+          <li><a href="visita.html">Visita</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--peq btn-cabecera" href="visita.html">Coordinar visita</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav">
+        <span class="icono-menu">Menú</span>
+        <span class="icono-x">Cerrar</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- Héroe -->
+    <!-- data-modo="video" reactiva el video cuando existan clips sin rótulos quemados.
+         Con data-modo="poster" el panel muestra el póster estático con un zoom lento
+         (Ken Burns) y el video queda en el DOM pero oculto. -->
+    <section class="heroe" data-modo="video" aria-label="Presentación">
+      <!-- Panel de video: retrato nativo (720x1280), sin barras negras.
+           En escritorio ocupa la columna derecha; en móvil va a sangre total detrás del texto. -->
+      <div class="heroe__panel" aria-hidden="true">
+        <video class="heroe__video heroe__video--escritorio" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" fetchpriority="high" tabindex="-1">
+          <source src="assets/media/hero-loop-dormitorio.webm" type="video/webm; codecs=vp9">
+          <source src="assets/media/hero-loop-dormitorio.mp4" type="video/mp4">
+        </video>
+        <video class="heroe__video heroe__video--movil" autoplay muted loop playsinline preload="none" poster="assets/img/hero-poster-mobile.jpg" fetchpriority="high" tabindex="-1">
+          <source src="assets/media/hero-loop-dormitorio.webm" type="video/webm; codecs=vp9">
+          <source src="assets/media/hero-loop-dormitorio.mp4" type="video/mp4">
+        </video>
+        <div class="heroe__velo"></div>
+      </div>
+      <div class="heroe__inner">
+        <p class="heroe__zona">San Diego, Carabobo<span class="heroe__zona-extra"> · Urb. San Sur</span></p>
+        <h1 class="display heroe__titulo">Llega, deja tu maleta y <em>vive</em>.</h1>
+        <div class="heroe__pie">
+          <p class="heroe__entradilla">Habitaciones amobladas para vivir tranquilo: con agua, luz, internet y limpieza de áreas comunes incluidos. El resto lo coordinamos nosotros contigo.</p>
+          <div class="heroe__acciones">
+            <a class="btn btn--solido" href="visita.html">Coordinar visita</a>
+            <a class="btn" href="habitacion.html">Ver habitaciones</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquesina -->
+    <div class="marquesina" aria-hidden="true">
+      <div class="marquesina__pista">
+        <div class="marquesina__grupo">
+          <span>Habitaciones amobladas</span><span>Servicios incluidos</span><span>Canon a tasa BCV del día</span><span>Baño de uso individual</span><span>Limpieza de áreas comunes incluida</span><span>San Diego, Carabobo</span>
+        </div>
+        <div class="marquesina__grupo">
+          <span>Habitaciones amobladas</span><span>Servicios incluidos</span><span>Canon a tasa BCV del día</span><span>Baño de uso individual</span><span>Limpieza de áreas comunes incluida</span><span>San Diego, Carabobo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Habitaciones -->
+    <section id="habitaciones">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">01</span> Habitaciones</p>
+        <h2 data-reveal>Dos espacios, <em>listos</em> para ti.</h2>
+        <p style="max-width:52ch; margin-top:1rem" data-reveal>Pasa el cursor sobre cada tarjeta para ver el tour en video. Los precios son el canon mensual; se negocian a la tasa EURO BCV del día y se cobran los primeros 5 días del mes.</p>
+
+        <div class="habitaciones__rejilla" style="margin-top:var(--esp-2)">
+          <a class="tarjeta-hab tarjeta-hab--a" href="habitacion.html#hab-grande" data-room="hab-grande" data-reveal>
+            <div class="tarjeta-hab__marco">
+              <picture>
+                <source srcset="assets/img/hab-grande-01.webp" type="image/webp">
+                <img src="assets/img/hab-grande-01.jpg" alt="Habitación Grande amoblada con cama individual, escritorio empotrado y aire acondicionado" loading="lazy" decoding="async" width="800" height="1000">
+              </picture>
+              <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
+                <source src="assets/media/hab-grande.mp4" type="video/mp4">
+              </video>
+              <p class="tarjeta-hab__precio"><small>Canon mensual</small><span data-precio="hab-grande">100 €</span></p>
+            </div>
+            <div class="tarjeta-hab__datos">
+              <h3>Habitación Grande</h3>
+              <p>Baño exterior · Tour 1:29</p>
+            </div>
+          </a>
+
+          <a class="tarjeta-hab tarjeta-hab--b" href="habitacion.html#hab-sencilla" data-room="hab-sencilla" data-reveal style="--d:.15s">
+            <div class="tarjeta-hab__marco">
+              <picture>
+                <source srcset="assets/img/hab-sencilla-01.webp" type="image/webp">
+                <img src="assets/img/hab-sencilla-01.jpg" alt="Habitación Sencilla amoblada con cama individual y baño dentro de la habitación" loading="lazy" decoding="async" width="800" height="1000">
+              </picture>
+              <video muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
+                <source src="assets/media/hab-sencilla.mp4" type="video/mp4">
+              </video>
+              <p class="tarjeta-hab__precio"><small>Canon mensual</small><span data-precio="hab-sencilla">75 €</span></p>
+            </div>
+            <div class="tarjeta-hab__datos">
+              <h3>Habitación Sencilla</h3>
+              <p>Baño interior · Tour 1:02</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qué incluye -->
+    <section class="bloque-incluye" style="background:var(--paper-2)">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">02</span> Qué incluye</p>
+        <div class="dos-col">
+          <div>
+            <h2 data-reveal>Todo esto va <em>dentro</em> del canon.</h2>
+            <p style="margin-top:1.2rem; max-width:44ch" data-reveal>Al cierre, el arrendatario paga 1 mes de depósito y 1 mes de canon adelantado; la comisión de la inmobiliaria y el costo del contrato corren por cuenta de la casa. El canon incluye agua, luz, internet y la limpieza de las áreas comunes; la limpieza de tu espacio (habitación y baño) se cobra aparte: 5 € al mes, una vez al mes, obligatoria.</p>
+            <a class="enlace-linea" style="margin-top:1.5rem" href="normas.html">Ver normas de convivencia
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <ul data-reveal>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 7"/></svg> Agua, luz e internet (wifi)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 7"/></svg> Limpieza de áreas comunes incluida · limpieza de tu espacio 5 €/mes (obligatoria, 1 vez al mes)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 7"/></svg> Gas comunal</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 7"/></svg> Cama con colchón, closet y escritorio</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 7"/></svg> Nevera, TV pantalla plana y espejo</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5L20 7"/></svg> Aire acondicionado Split 12.000 BTU</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaser normas -->
+    <section>
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">03</span> Convivencia</p>
+        <div class="dos-col">
+          <div>
+            <h2 data-reveal>Normas claras, casa <em>tranquila</em>.</h2>
+            <p style="margin-top:1.2rem; max-width:44ch" data-reveal>Sabemos lo que buscas: un lugar donde estudiar, descansar y vivir en paz. Estas son las bases, tal como están en el contrato.</p>
+            <a class="enlace-linea" style="margin-top:1.5rem" href="normas.html">Leer las normas completas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="norma-cards" data-reveal>
+            <article class="norma-card"><h4>Visitas de familia directa</h4><p>Mamá o papá pueden visitarte hasta 2 días, coordinando con la administración.</p></article>
+            <article class="norma-card"><h4>Estudio y visitas de día</h4><p>Las visitas por estudio son hasta las 7:00 pm, en los espacios comunes.</p></article>
+            <article class="norma-card"><h4>Dos limpiezas al mes</h4><p>Una la cubre la casa y la otra el residente, con su habitación y su baño.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teaser contrato -->
+    <section style="background:var(--paper-2)">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">04</span> Transparencia</p>
+        <div class="dos-col">
+          <div>
+            <h2 data-reveal>El contrato, <em>sobre la mesa</em>.</h2>
+            <p style="margin-top:1.2rem; max-width:44ch" data-reveal>No hay letra chica escondida: el modelo completo de las 19 cláusulas está publicado, listo para que lo leas con calma antes de visitar.</p>
+            <a class="enlace-linea" style="margin-top:1.5rem" href="contrato.html">Ver el modelo de contrato
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="bloque-ficha" data-reveal>
+            <h3>Lo esencial del cierre</h3>
+            <ul>
+              <li><span class="etiqueta">Duración</span><strong>6 meses</strong></li>
+              <li><span class="etiqueta">Moneda</span><strong>Euro (EUR €), tasa BCV del día</strong></li>
+              <li><span class="etiqueta">Cobro</span><strong>Primeros 5 días del mes</strong></li>
+              <li><span class="etiqueta">Depósito</span><strong>1 mes · sin intereses</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="zona-verde" style="margin:0 var(--esp-1) var(--esp-3)">
+      <div class="contenedor" style="display:grid; gap:1.4rem; justify-items:start">
+        <h2 data-reveal>¿Te imaginas ya tus cosas <em>aquí</em>?</h2>
+        <p style="max-width:52ch; opacity:.9" data-reveal>Agenda tu visita: dejamos tus datos en el formulario y coordinamos fecha y hora contigo. Te compartimos la dirección exacta al confirmar. Respondemos en menos de 24 horas hábiles.</p>
+        <div class="heroe__acciones" data-reveal>
+          <a class="btn btn--solido" style="background:var(--paper); color:var(--verde); border-color:var(--paper)" href="visita.html">Coordinar visita</a>
+          <a class="btn" href="contacto.html">Cómo coordinar una visita</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__rejilla">
+        <div>
+          <p class="site-footer__marca">Residencia <em>Chalo</em></p>
+          <p style="margin-top:1rem; max-width:30ch; color:rgba(20,17,14,.7)">Habitaciones amobladas para vivir tranquilo, en el municipio San Diego, Estado Carabobo.</p>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="habitacion.html">Habitaciones</a></li>
+            <li><a href="normas.html">Normas de convivencia</a></li>
+            <li><a href="contrato.html">Modelo de contrato</a></li>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="visita.html">Coordinar visita</a></li>
+            <li>San Diego, Carabobo · Urb. San Sur</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© <span data-anio>2025</span> Residencia Chalo · Visitas únicamente con cita previa.</p>
+        <p>La dirección exacta se comparte al agendar tu visita.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
