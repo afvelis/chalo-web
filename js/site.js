@@ -46,6 +46,12 @@
     nav.addEventListener('click', function (evento) {
       if (evento.target.closest('a')) { cerrarMenu(); }
     });
+    /* Cajón lateral: un clic fuera del menú lo cierra (en móvil es lo esperado). */
+    document.addEventListener('click', function (evento) {
+      if (toggle.getAttribute('aria-expanded') !== 'true') { return; }
+      if (evento.target.closest('#nav') || evento.target.closest('.nav-toggle')) { return; }
+      cerrarMenu();
+    });
     document.addEventListener('keydown', function (evento) {
       if (evento.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
         cerrarMenu();

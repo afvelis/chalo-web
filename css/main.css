@@ -254,28 +254,36 @@ h2 em, h3 em { font-style: italic; color: var(--terracota); }
   .nav-toggle { display: inline-flex; margin-left: auto; }
   .btn-cabecera { display: none; }
   .nav {
+    /* Cajón lateral: se desliza desde el borde derecho sin tapar la página.
+       OJO: .site-header tiene backdrop-filter y es el contenedor de
+       referencia de los descendientes fixed, por eso se ancla con right:0
+       y altura explícita en vez de inset:0. */
     position: fixed;
-    /* OJO: .site-header tiene backdrop-filter, y eso lo convierte en el
-       contenedor de referencia de los descendientes fixed. Por eso NO se
-       usa inset:0 (el menú se quedaba del alto de la barra). Con medidas
-       explícitas cubre la pantalla completa. */
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: min(85vw, 340px);
     height: 100vh;
     height: 100dvh;
     z-index: 90;
     background: var(--paper);
-    display: grid;
-    place-items: center;
-    padding: 5.5rem 1.5rem 2rem;
+    border-left: 1px solid var(--linea);
+    box-shadow: -18px 0 40px rgba(20, 17, 14, .14);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5.5rem 1.6rem 2rem;
     overflow-y: auto;
-    opacity: 0;
+    transform: translateX(105%);
     visibility: hidden;
-    transition: opacity .4s var(--ease), visibility 0s .4s;
+    transition: transform .4s var(--ease), visibility 0s .4s;
   }
-  .nav--abierta { opacity: 1; visibility: visible; transition: opacity .4s var(--ease); }
-  .nav ul { flex-direction: column; text-align: center; gap: 1.4rem; }
+  .nav--abierta {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform .4s var(--ease);
+  }
+  .nav ul { flex-direction: column; align-items: flex-start; text-align: left; gap: 1.4rem; }
   .nav a { font-family: var(--f-display); font-size: clamp(1.8rem, 7vw, 2.6rem); font-variation-settings: 'opsz' 90; }
   .site-header { z-index: 110; }
 }
