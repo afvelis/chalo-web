@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residencia Chalo — Pack publicitario</title>
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
+<style>
+  :root {
+    --paper: #F7F1E6; --paper-2: #EFE5D3; --ink: #14110E;
+    --terracota: #B4552D; --verde: #1F3D2F; --linea: rgba(20,17,14,.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: 'Instrument Sans Variable', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 56px 24px 80px; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--terracota); margin-right: 10px; }
+  .brand { font-family: 'Fraunces Variable', Georgia, serif; font-weight: 620; font-size: 1.15rem; }
+  .brand-sub { font-style: italic; color: var(--verde); }
+  h1 { font-family: 'Fraunces Variable', Georgia, serif; font-weight: 560; font-size: 2rem; margin: 18px 0 10px; }
+  .lede { font-style: italic; color: rgba(20,17,14,.8); margin-bottom: 40px; }
+  hr { border: 0; border-top: 2px solid var(--linea); margin: 0 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .item { background: var(--paper-2); border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; display: block; border-top: 6px solid var(--verde); }
+  .thumb { background: #fff; height: 210px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .thumb img { max-height: 190px; max-width: 100%; width: auto; }
+  .item .pad { padding: 20px 22px 24px; }
+  .item h2 { font-family: 'Fraunces Variable', Georgia, serif; font-weight: 600; font-size: 1.15rem; color: var(--verde); }
+  .item p { font-size: .95rem; color: rgba(20,17,14,.85); margin-top: 6px; }
+  .uso { display: inline-block; margin-top: 12px; font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--terracota); }
+  footer { margin-top: 48px; border-top: 2px solid var(--linea); padding-top: 20px; font-style: italic; font-size: .9rem; color: rgba(20,17,14,.7); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div><span class="dot"></span><span class="brand">Residencia Chalo</span> <span class="brand-sub">·&nbsp;San Diego&nbsp;·&nbsp;Estado Carabobo</span></div>
+    <h1>Pack publicitario</h1>
+    <p class="lede">Materiales listos para imprimir y compartir. Habitaciones desde 75&nbsp;€/mes.</p>
+    <hr>
+
+    <div class="grid">
+      <a class="item" href="./cartel-carta.png" download>
+        <div class="thumb"><img src="./cartel-carta.png" alt="Miniatura del cartel"></div>
+        <div class="pad">
+          <h2>Cartel (PNG)</h2>
+          <p>Carta 8.5×11&nbsp;in a 300&nbsp;DPI, 2550×3300&nbsp;px.</p>
+          <span class="uso">Imprimir en carta</span>
+        </div>
+      </a>
+      <a class="item" href="./cartel-carta.pdf" download>
+        <div class="thumb"><img src="./cartel-carta.png" alt="Miniatura del PDF"></div>
+        <div class="pad">
+          <h2>Cartel (PDF)</h2>
+          <p>Mismo cartel en PDF a página completa, sin márgenes.</p>
+          <span class="uso">Imprimir en carta</span>
+        </div>
+      </a>
+      <a class="item" href="./tarjeta-whatsapp.png" download>
+        <div class="thumb"><img src="./tarjeta-whatsapp.png" alt="Miniatura de la tarjeta"></div>
+        <div class="pad">
+          <h2>Tarjeta WhatsApp (PNG)</h2>
+          <p>1080×1350&nbsp;px, lista para enviar por WhatsApp o Instagram.</p>
+          <span class="uso">Enviar por WhatsApp</span>
+        </div>
+      </a>
+      <a class="item" href="./qr-residencia-chalo.png" download>
+        <div class="thumb"><img src="./qr-residencia-chalo.png" alt="QR de Residencia Chalo"></div>
+        <div class="pad">
+          <h2>QR real (PNG)</h2>
+          <p>1480×1480&nbsp;px. Apunta a afvelis.github.io/chalo-web.</p>
+          <span class="uso">Pegar en diseños externos</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>Visitas coordinadas solo por la web. Respondemos en menos de 24&nbsp;horas hábiles.</footer>
+  </div>
+</body>
+</html>

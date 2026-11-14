@@ -1,0 +1,37 @@
+/* Paleta y tipografías del pack — espejo de WEB_Chalo/css/main.css (tokens) */
+:root {
+  --paper: #F7F1E6;
+  --paper-2: #EFE5D3;
+  --ink: #14110E;
+  --terracota: #B4552D;
+  --terracota-2: #C8714A;
+  --verde: #1F3D2F;
+  --arena: #D9A77C;
+  --linea: rgba(20, 17, 14, .14);
+  --f-display: 'Fraunces Variable', Georgia, serif;
+  --f-ui: 'Instrument Sans Variable', system-ui, sans-serif;
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url('./fraunces-var.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Fraunces Variable';
+  font-style: italic;
+  font-weight: 100 900;
+  src: url('./fraunces-var-italic.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Instrument Sans Variable';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('./instrument-sans-var.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Instrument Sans Variable';
+  font-style: italic;
+  font-weight: 400 700;
+  src: url('./instrument-sans-var-italic.woff2') format('woff2-variations');
+}
