@@ -8,7 +8,7 @@ Material gráfico listo para imprimir y compartir. Todo lo que hay aquí está *
 |---|---|---|
 | `cartel-carta.pdf` | Cartel en PDF, página carta (8.5×11 in), a sangrado completo (sin márgenes) | Imprimir en papel carta |
 | `cartel-carta.png` | El mismo cartel en imagen, 2550×3300 px (300 DPI) | Para subir, previsualizar o imprimir desde apps que no aceptan PDF |
-| `tarjeta-whatsapp.png` | Tarjeta vertical 1080×1350 px (4:5) | Enviar por WhatsApp o publicar en Instagram/estado |
+| `tarjeta-whatsapp.png` | Tarjeta vertical 1080×1350 px (4:5), de marca y sin precios | Enviar por WhatsApp o publicar en Instagram/estado |
 | `qr-residencia-chalo.png` | QR real y verificado, 1480×1480 px | Pegarlo en otros diseños; ya está incrustado en el cartel y la tarjeta |
 | `cartel-carta.html` / `tarjeta-whatsapp.html` | Fuentes editables del diseño | Para cambiar textos y volver a renderizar (ver abajo) |
 | `index.html` | Página de descargas del pack | Abrir en el navegador para ver miniaturas y descargar |

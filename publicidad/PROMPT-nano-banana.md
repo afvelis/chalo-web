@@ -31,28 +31,25 @@ No phone numbers, no email, no address, no logos, no watermarks, no extra text.
 
 ---
 
-## Prompt 2 — Tarjeta para WhatsApp / Instagram (1080×1350 px)
+## Prompt 2 — Tarjeta de marca para WhatsApp / Instagram (1080×1350 px)
 
 ```text
 Create a social media card, portrait, exactly 1080x1350 pixels (4:5 ratio), flat editorial layout.
 
-STYLE: Warm Caribbean editorial design. Cream background (#F7F1E6), ink-black text (#14110E), one terracotta accent (#B4552D), deep green details (#1F3D2F). Serif display type (Fraunces-like) for headline and price, clean sans-serif (Instrument Sans-like) for supporting lines. LARGE, highly legible type — this card must stay readable as a small chat thumbnail. Generous white space, no gradients, no clipart, no emojis.
+STYLE: Warm Caribbean editorial design. Cream background (#F7F1E6), ink-black text (#14110E), one terracotta accent (#B4552D), deep green details (#1F3D2F). Serif display type (Fraunces-like) for the brand name, clean sans-serif (Instrument Sans-like) for supporting lines. LARGE, highly legible type — this card must stay readable as a small chat thumbnail. Generous white space, no gradients, no clipart, no emojis.
 
-PHOTO: optional, very small soft warm photo of a simple furnished bedroom; if it competes with legibility, omit it.
+PHOTO: a warm, natural photo of a simple furnished bedroom (bed with clean white linens, soft daylight), full-bleed across the TOP of the card, fading smoothly into the cream background. It must blend with the palette; no odd crops.
 
 MANDATORY QR RESERVATION: In the LOWER CENTER, leave a completely BLANK, CLEAN WHITE ROUNDED SQUARE CARD with generous white padding (quiet zone), about 50% of the card width. DO NOT draw any QR code or pattern inside it. Below the square, small text "afvelis.github.io/chalo-web" and, in deep green serif, "Escanea o entra al link".
 
 EXACT TEXT ON THE CARD (Spanish, reproduce exactly):
-- Brand line: "Residencia Chalo · San Diego · Estado Carabobo"
-- Headline, large serif: "¿Buscas habitación cerca de la universidad?"
-- Price, terracotta, very large: "Desde 75 € / mes"
-- Option line 1: "Habitación Sencilla — 75 €/mes · baño dentro de la habitación."
-- Option line 2: "Habitación Grande — 100 €/mes · baño de uso individual."
+- Brand, very large serif: "Residencia Chalo" (with "Chalo" in the terracotta accent color)
+- Fixed line, medium: "Habitaciones amobladas · San Diego, Estado Carabobo"
 - Footer, italic, small: "Visitas coordinadas por la web."
 
-Do not add any other text. All copy in Spanish exactly as written above.
+STRICTLY FORBIDDEN: no prices, no rates, no currency symbols, no amounts, no "Desde", no room names or room types, no bathroom details, no phone numbers, no email, no address, no logos, no watermarks, no extra text. This is a brand-only card.
 
-No phone numbers, no email, no address, no logos, no watermarks, no extra text.
+Do not add any other text. All copy in Spanish exactly as written above.
 ```
 
 ---
