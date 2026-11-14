@@ -29,7 +29,7 @@ window.CHALO_ROOMS = [
     video: {
       mp4: 'assets/media/hab-grande.mp4',
       hdWebm: 'assets/media/hd/hab-grande.webm',
-      ytid: '8TSaMgzZkaM',  /* YouTube Shorts: Habitación Grande */
+      ytid: 'cRhXx7wfRqU',  /* YouTube: Habitación Grande (con música libre) */
       vertical: true,
       duracion: '1:29'
     },
