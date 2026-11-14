@@ -506,6 +506,64 @@ h2 em, h3 em { font-style: italic; color: var(--terracota); }
   object-position: center 65%;
   transform: scale(1.07);
 }
+
+/* YouTube Shorts (vertical 9:16): centrado, sin barras negras */
+.recorte-video--vertical {
+  aspect-ratio: 9 / 16;
+  height: min(60vh, 560px);
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #000;
+}
+.recorte-video--vertical iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+/* Reproductor de la YouTube IFrame Player API: el marco ocupa el
+   recorte completo (16:10 u 9:16 vertical) y el botón flotante es
+   el gesto de usuario que desbloquea el audio si el navegador
+   bloqueó el autoplay con sonido. Sin colores nuevos. */
+.yt-marco {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.yt-player,
+.yt-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.yt-player { z-index: 0; }
+.yt-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  min-height: 48px;
+  min-width: 48px;
+  padding: .9rem 1.4rem;
+  background: var(--terracota);
+  color: var(--paper);
+  font-family: var(--f-ui);
+  font-size: .95rem;
+  border: 0;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color .18s ease, transform .18s ease;
+}
+.yt-play:hover { background: var(--terracota-2); }
+.yt-play:active { transform: translate(-50%, -50%) scale(.97); }
+@media (prefers-reduced-motion: reduce) {
+  .yt-play { transition: none; }
+  .yt-play:active { transform: translate(-50%, -50%); }
+}
 .placa-hab {
   position: absolute;
   left: .9rem;
@@ -539,6 +597,7 @@ h2 em, h3 em { font-style: italic; color: var(--terracota); }
 @media (min-width: 900px) {
   .recorte-video { max-height: min(46vh, 520px); }
   .recorte-video video { max-height: min(46vh, 520px); }
+  .recorte-video--vertical { max-height: min(60vh, 560px); }
 }
 
 /* ---------- 10. Secciones editoriales ---------- */

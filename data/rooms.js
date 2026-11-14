@@ -1,7 +1,7 @@
 /* ============================================================
    Residencia Chalo — habitaciones
    Define window.CHALO_ROOMS. Edita "disponible" para publicar
-   u ocultar una habitación, o genera el archivo con el editor local de habitaciones
+   u ocultar una habitación, o usa admin.html para hacerlo
    visualmente y exportar este archivo ya actualizado.
    ============================================================ */
 
@@ -28,6 +28,8 @@ window.CHALO_ROOMS = [
     video: {
       mp4: 'assets/media/hab-grande.mp4',
       hdWebm: 'assets/media/hd/hab-grande.webm',
+      ytid: '8TSaMgzZkaM',  /* YouTube Shorts: Habitación Grande */
+      vertical: true,
       duracion: '1:29'
     },
     incluidos: [
@@ -68,6 +70,8 @@ window.CHALO_ROOMS = [
     video: {
       mp4: 'assets/media/hab-sencilla.mp4',
       hdWebm: 'assets/media/hd/hab-sencilla.webm',
+      ytid: 'ny_aWmtTWpQ',  /* YouTube: Habitación Sencilla (con música libre) */
+      vertical: true,
       duracion: '1:02'
     },
     incluidos: [

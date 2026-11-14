@@ -26,10 +26,123 @@
     return hab || disponibles[0];
   }
 
+  /* ----- YouTube IFrame Player API -----
+     Se carga una sola vez, de forma diferida y sin bloquear: solo
+     cuando la primera ficha con ytid pinta su contenedor. Si la
+     API ya está en window, se reutiliza; si no, se define
+     onYouTubeIframeAPIReady una única vez (encadenando cualquier
+     versión previa) y se resuelve la promesa que encola a los
+     reproductores creados antes de que la API llegue. */
+  var apiCargada = null;
+  function cargarApiYouTube() {
+    if (window.YT && window.YT.Player) { return Promise.resolve(window.YT); }
+    if (apiCargada) { return apiCargada; }
+    apiCargada = new Promise(function (resolver) {
+      var previa = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () {
+        if (typeof previa === 'function') { previa(); }
+        resolver(window.YT);
+      };
+      var script = document.createElement('script');
+      script.src = 'https://www.youtube.com/iframe_api';
+      script.async = true;
+      (document.getElementsByTagName('script')[0] || document.head).appendChild(script);
+    });
+    return apiCargada;
+  }
+
+  /* Estado del reproductor actual (uno por ficha; hashchange lo
+     destruye antes de repintar para no acumular iframes). */
+  var player = null;
+  var temporizadorBoton = null;
+  /* Token que invalida promesas pendientes de la API tras un hashchange:
+     sin él, un onYouTubeIframeAPIReady tardío del video anterior podría
+     crear el reproductor en la ficha nueva con el videoId viejo. */
+  var generacion = 0;
+
+  function botonPlay() { return raiz.querySelector('.yt-play'); }
+  function mostrarBoton() { var boton = botonPlay(); if (boton) { boton.hidden = false; } }
+  function ocultarBoton() { var boton = botonPlay(); if (boton) { boton.hidden = true; } }
+
+  function cancelarTemporizador() {
+    if (temporizadorBoton) { clearTimeout(temporizadorBoton); temporizadorBoton = null; }
+  }
+
+  /* Si tras 1200 ms del onReady el video no está PLAYING (1) ni
+     BUFFERING (3), el navegador bloqueó el autoplay con sonido:
+     se muestra el botón para que un gesto del usuario arranque
+     el audio. */
+  function programarBoton() {
+    cancelarTemporizador();
+    temporizadorBoton = setTimeout(function () {
+      temporizadorBoton = null;
+      var estado = null;
+      try { estado = player && player.getPlayerState(); } catch (error) { estado = null; }
+      if (estado !== 1 && estado !== 3) { mostrarBoton(); }
+    }, 1200);
+  }
+
+  function crearReproductor(videoId) {
+    var promesa = cargarApiYouTube();
+    /* Guardia de 4 s: si la API no llega, se cae en silencio
+       (reproductor sin botón) sin romper la página. */
+    var acaboLaGuardia = false;
+    var guardia = setTimeout(function () { acaboLaGuardia = true; }, 4000);
+    var miGeneracion = generacion;
+    promesa.then(function (YT) {
+      if (guardia) { clearTimeout(guardia); guardia = null; }
+      /* La API tardó más de 4 s: fallback silencioso, reproductor sin
+         botón y sin romper la página. */
+      if (acaboLaGuardia || miGeneracion !== generacion) { return; }
+      /* El render puede haber repintado (hashchange) antes de que
+         cargara la API: el contenedor ya no es el mismo. */
+      if (!document.getElementById('yt-player') || player) { return; }
+      player = new YT.Player('yt-player', {
+        videoId: videoId,
+        playerVars: { autoplay: 1, controls: 0, rel: 0, playsinline: 1, modestbranding: 1, mute: 0 },
+        events: {
+          onReady: function () {
+            player.playVideo();
+            programarBoton();
+          },
+          onStateChange: function (evento) {
+            /* PLAYING = 1, PAUSED = 2, UNSTARTED = -1 */
+            if (evento.data === 1) { ocultarBoton(); }
+            else if (evento.data === 2 || evento.data === -1) { mostrarBoton(); }
+          },
+          onError: function (evento) {
+            console.warn('YouTube player error:', evento.data);
+            mostrarBoton();
+          }
+        }
+      });
+    }).catch(function () { /* fallback silencioso */ });
+  }
+
+  function destruirReproductor() {
+    generacion++;
+    cancelarTemporizador();
+    if (player) {
+      try { player.destroy(); } catch (error) { /* ya removido */ }
+      player = null;
+    }
+  }
+
   /* ----- Video con recorte (tapa placa del editor) -----
-     Se reconstruye por render: el <video> vuelve a su estado
-     inicial (póster, sin reproducir) y preload sigue en metadata. */
+     YouTube: contenedor + API (autoplay fiable); el botón .yt-play
+     queda oculto hasta que el navegador bloquee el audio. Sin ytid,
+     el <video> local se deja exactamente como estaba. */
   function bloqueVideo(hab) {
+    if (hab.video && hab.video.ytid) {
+      var claseYt = (hab.video.vertical) ? ' recorte-video--vertical' : '';
+      return (
+        '<div class="recorte-video' + claseYt + '">' +
+          '<div class="yt-marco"><div id="yt-player" class="yt-player"></div></div>' +
+          '<button class="yt-play" type="button" hidden>Ver el tour con sonido</button>' +
+          '<p class="placa-hab"><small>Residencia Chalo</small>' + hab.nombre + '</p>' +
+        '</div>'
+      );
+    }
     var fuentes = '';
     if (hab.video && hab.video.hdWebm) {
       fuentes += '<source src="' + hab.video.hdWebm + '" type="video/webm">';
@@ -53,6 +166,12 @@
     document.title = hab.nombre + ' · Residencia Chalo';
 
     raiz.querySelector('[data-slot="video"]').innerHTML = bloqueVideo(hab);
+
+    /* El contenedor ya está en el DOM: se crea el reproductor de la
+       API (solo para fichas con ytid). */
+    if (hab.video && hab.video.ytid) {
+      crearReproductor(hab.video.ytid);
+    }
 
     /* ----- Encabezado y descripción ----- */
     raiz.querySelector('[data-slot="titulo"]').textContent = hab.nombre;
@@ -160,8 +279,22 @@
      El desplazamiento al título solo ocurre en hashchange: en la carga
      inicial con hash se respeta el salto nativo del navegador. */
   window.addEventListener('hashchange', function () {
+    destruirReproductor();
     renderHab(resolverHab());
     desplazarAlTitulo();
+  });
+
+  /* Gesto de usuario sobre .yt-play (delegado, registrado una vez):
+     el clic permite desbloquear el audio que el autoplay bloqueó. */
+  document.addEventListener('click', function (evento) {
+    var boton = evento.target && evento.target.closest ? evento.target.closest('.yt-play') : null;
+    if (!boton || !player) { return; }
+    try {
+      player.unMute();
+      player.setVolume(70);
+      player.playVideo();
+    } catch (error) { /* reproductor ya destruido */ }
+    boton.hidden = true;
   });
 
   renderHab(resolverHab());
