@@ -16,7 +16,7 @@ window.CHALO_SITE = {
   },
   /* Ajusta esta URL si publicas el sitio en otra ruta o dominio
      (la usan los códigos QR y el retorno del formulario). */
-  baseUrl: 'https://afvelis.github.io/residencia_Chalo/',
+  baseUrl: 'https://afvelis.github.io/chalo-web/',
   /* El correo de destino del formulario de visita NO se declara aquí:
      vive únicamente en la action del formulario de visita.html. */
   moneda: 'EUR',

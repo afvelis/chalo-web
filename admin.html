@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mesa de control · Residencia Chalo</title>
+  <meta name="description" content="Mesa de control interna de Residencia Chalo. No enlazada desde el sitio público.">
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261113l">
+  <link rel="stylesheet" href="css/main.css?v=20261113l">
+  <script src="data/site.js?v=20261113l" defer></script>
+  <script src="data/rooms.js?v=20261113l" defer></script>
+  <script src="assets/vendor/qrcode.js?v=20261113l" defer></script>
+  <script src="js/site.js?v=20261113l" defer></script>
+  <script src="js/qr.js?v=20261113l" defer></script>
+  <script src="js/admin.js?v=20261113l" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <svg class="visually-hidden" aria-hidden="true" focusable="false" width="0" height="0"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></svg>
+  <div class="grano" aria-hidden="true"></div>
+  <div class="cursor-punto" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="marca" href="index.html">Residencia <em>Chalo</em></a>
+      <a class="btn btn--peq" href="dashboard.html" style="margin-left:auto">Solicitudes de visita</a>
+      <a class="btn btn--peq btn-cabecera" href="index.html">Ver sitio público</a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="pagina-editorial">
+      <div class="contenedor">
+        <p class="rotulo"><span class="rotulo__num">Mesa</span> Administración</p>
+        <h1 class="display" style="margin-bottom:var(--esp-1)">Mesa de <em>control</em></h1>
+
+        <div class="admin-banner" role="note">
+          <strong>Esta página no está protegida por contraseña:</strong> cualquiera con la URL puede verla. Sirve para operar localmente; no publiques cambios sensibles desde un equipo compartido.
+        </div>
+
+        <p class="mensaje-admin" id="admin-mensaje" role="status"></p>
+
+        <!-- Listado de habitaciones -->
+        <div class="panel-admin">
+          <h3>Habitaciones</h3>
+          <p style="font-size:.92rem; margin-bottom:1rem; color:rgba(20,17,14,.7)">Los cambios se guardan en este navegador. Para publicarlos, exporta el archivo y reemplaza <code>data/rooms.js</code> en el repositorio.</p>
+          <div id="admin-lista"></div>
+          <div class="admin-acciones">
+            <button type="button" class="btn btn--peq" id="admin-restaurar">Restaurar datos originales</button>
+          </div>
+        </div>
+
+        <!-- Añadir habitación -->
+        <div class="panel-admin">
+          <h3>Añadir habitación</h3>
+          <form id="admin-nueva" class="hab-editor__campos" style="align-items:end">
+            <label>Nombre <input type="text" name="nombre" required placeholder="Ej. Habitación Amplia"></label>
+            <label>Canon (€) <input type="number" name="canon" min="0" step="1" required placeholder="90"></label>
+            <label>Baño
+              <select name="banio">
+                <option value="exterior">Exterior</option>
+                <option value="interior">Interior</option>
+              </select>
+            </label>
+            <div>
+              <button type="submit" class="btn btn--peq btn--solido">Añadir</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Exportar / importar -->
+        <div class="panel-admin">
+          <h3>Exportar e importar</h3>
+          <div class="admin-acciones">
+            <button type="button" class="btn btn--peq btn--terracota" id="admin-exportar">Exportar rooms.js</button>
+          </div>
+          <p style="font-size:.92rem; margin-top:1rem; color:rgba(20,17,14,.7)">O pega aquí un JSON de habitaciones (un arreglo con <code>slug</code> y <code>nombre</code> como mínimo) para importarlo:</p>
+          <textarea class="codigo" id="admin-json" style="margin-top:.6rem" placeholder='[{"slug":"hab-grande","nombre":"Habitación Grande", …}]' aria-label="JSON de habitaciones para importar"></textarea>
+          <div class="admin-acciones">
+            <button type="button" class="btn btn--peq" id="admin-importar">Importar JSON</button>
+          </div>
+        </div>
+
+        <!-- Generador de QR -->
+        <div class="panel-admin">
+          <h3>Generador de QR</h3>
+          <p style="font-size:.92rem; margin-bottom:1rem; color:rgba(20,17,14,.7)">El código apunta a la URL pública (ajústala si publicas en otra ruta). PNG para imprimir, SVG para escalar sin perder calidad.</p>
+          <div class="qr-layout">
+            <div>
+              <div class="qr-vista" id="qr-vista" aria-live="polite"></div>
+              <div class="admin-acciones">
+                <button type="button" class="btn btn--peq" id="qr-png">Descargar PNG</button>
+                <button type="button" class="btn btn--peq" id="qr-svg">Descargar SVG</button>
+              </div>
+            </div>
+            <div class="hab-editor__campos">
+              <label>Objetivo
+                <select id="qr-objetivo">
+                  <option value="general">Sitio general (index.html)</option>
+                </select>
+              </label>
+              <label>Tamaño de celda
+                <select id="qr-tamano">
+                  <option value="4">Pequeño (4)</option>
+                  <option value="6" selected>Mediano (6)</option>
+                  <option value="8">Grande (8)</option>
+                  <option value="12">Impresión (12)</option>
+                </select>
+              </label>
+              <label>Corrección de errores
+                <select id="qr-nivel">
+                  <option value="L">Baja (L)</option>
+                  <option value="M" selected>Media (M)</option>
+                  <option value="Q">Alta (Q)</option>
+                  <option value="H">Máxima (H)</option>
+                </select>
+              </label>
+              <label>URL base <input type="text" id="qr-url" value="https://afvelis.github.io/residencia_Chalo/"></label>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:.85rem; color:rgba(20,17,14,.6)">Página interna · noindex · no enlazada desde la navegación pública.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

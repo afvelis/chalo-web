@@ -1,7 +1,8 @@
 /* ============================================================
    Residencia Chalo — habitaciones
    Define window.CHALO_ROOMS. Edita "disponible" para publicar
-   u ocultar una habitación, o usa admin.html para hacerlo
+   u ocultar una habitación, o usa el editor local (admin.html
+   en tu copia de trabajo; no se publica) para hacerlo
    visualmente y exportar este archivo ya actualizado.
    ============================================================ */
 
